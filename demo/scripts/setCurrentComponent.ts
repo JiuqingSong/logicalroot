@@ -3,7 +3,14 @@ import { ComponentsStore } from "./componentsStore";
 
 let currentComponentId = '';
 
-export function setCurrentComponent(editor: IEditor, component: HTMLDivElement | string): boolean { 
+export function setCurrentComponent(editor: IEditor, component: HTMLDivElement | string | null): boolean { 
+    if (component === null && currentComponentId) {
+        currentComponentId = '';
+        editor.setLogicalRoot(null);
+        editor.focus();
+        return true;
+    }
+
     const id = typeof component == 'string' ? component : component.id;
 
     if (id == currentComponentId) {

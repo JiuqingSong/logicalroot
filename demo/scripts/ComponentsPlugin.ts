@@ -20,8 +20,12 @@ export class ComponentPlugin implements EditorPlugin {
             const target = event.rawEvent.target as HTMLElement;
             const componentContainer = this.editor.getDOMHelper().findClosestElementAncestor(target, 'div[id^="Component_"]') as HTMLDivElement;
 
-            if (componentContainer && setCurrentComponent(this.editor, componentContainer)) {
-                event.rawEvent.preventDefault();
+            if (componentContainer ) {
+                if (setCurrentComponent(this.editor, componentContainer)) {
+                    event.rawEvent.preventDefault();
+                }
+            } else {
+                setCurrentComponent(this.editor, null);
             }
         } else if (event.eventType == 'keyDown') {
             const key = event.rawEvent.key;
