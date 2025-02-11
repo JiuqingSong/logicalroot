@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RoosterJs Demo Site</title>
+        <style>
+            #mainPane {
+                position: absolute;
+                left: 10px;
+                right: 10px;
+                top: 50px;
+                bottom: 10px;
+                border: solid 1px black;
+            }
+        </style>
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="require-trusted-types-for 'script'; trusted-types dompurify;"
+        />
+    </head>
+    <body>
+        <div id="mainPane"></div>
+        <button id="addComponent">Add Component</button>
+        <script src="scripts/demo.js"></script>
+    </body>
+</html>
